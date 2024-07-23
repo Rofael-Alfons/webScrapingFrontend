@@ -24,3 +24,19 @@ This React application allows users to input a URL and generate a summary of the
    git clone https://github.com/Rofael-Alfons/webScrapingFrontend.git
    cd webScrapingFrontend
    ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Start app:
+
+   ```sh
+   npm start
+   ```
+
+## For Contact
+
+rofa.alfons7@gmail.com
