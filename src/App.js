@@ -19,7 +19,9 @@ function App() {
     setTypewriterDone(false);
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/scrape/?url=${encodeURIComponent(url)}`
+        `https://equipment-602z.onrender.com/api/scrape/?url=${encodeURIComponent(
+          url
+        )}`
       );
       const summaryText = response.data.data;
       setSummary(summaryText);
