@@ -29,7 +29,7 @@ function App() {
       setDisplaySummary(true);
     } catch (error) {
       console.error("Error fetching summary:", error);
-      setSummary("Error fetching summary. Please try again.");
+      setSummary("We are facing some issues, Please try again.");
       setDisplaySummary(true);
     }
     setLoading(false);
