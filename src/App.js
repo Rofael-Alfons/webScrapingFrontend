@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
       <header className="bg-white p-4 shadow-md">
-        <nav className="flex justify-between items-center container mx-auto">
+        <nav className="flex justify-between items-center container mx-auto px-[5%]">
           <div className="flex items-center">
             <img src={logo} alt="Logo" className="h-16 w-16 " />
           </div>
@@ -93,78 +93,80 @@ function App() {
         </h1>
       </header>
       <main className="container mx-auto text-center my-10">
-        <div className="flex justify-center items-center mb-6">
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            onKeyPress={handleKeyPress}
-            placeholder="Put your url here ..."
-            className="border border-gray-300 rounded-l px-4 py-2 w-2/3"
-          />
-          <button
-            onClick={handleGenerateClick}
-            className="bg-green-500 text-white px-4 py-2 rounded-r"
-            disabled={loading}
-          >
-            Generate
-          </button>
-        </div>
-        {loading ? (
-          <div className="spinner-border text-green-500" role="status">
-            <span className="sr-only">Loading...</span>
+        <div className="flex justify-center items-center mb-6 flex-col">
+          <div className=" py-2 w-2/3 flex">
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Put your url here ..."
+              className="border border-gray-300 rounded-l w-full px-4"
+            />
+            <button
+              onClick={handleGenerateClick}
+              className="bg-green-500 text-white px-4 py-2 rounded-r"
+              disabled={loading}
+            >
+              Generate
+            </button>
           </div>
-        ) : (
-          <div
-            className={`relative bg-green-100 p-6 rounded-lg text-left w-2/3 mx-auto ${
-              isArabic ? "rtl" : ""
-            }`}
-          >
-            {displaySummary && isArabic ? (
-              <h2 className="text-gray-800 font-bold mb-2">ملخصك هنا :</h2>
-            ) : displaySummary && !isArabic ? (
-              <h2 className="text-gray-800 font-bold mb-2">
-                Your summary is here
-              </h2>
-            ) : (
-              <h2 className="text-gray-800 font-bold mb-2">
-                Your summary will display here
-              </h2>
-            )}
+          {loading ? (
+            <div className="spinner-border text-green-500" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          ) : (
+            <div
+              className={`relative bg-green-100 p-6 rounded-lg text-left w-2/3 mx-auto ${
+                isArabic ? "rtl" : ""
+              }`}
+            >
+              {displaySummary && isArabic ? (
+                <h2 className="text-gray-800 font-bold mb-2">ملخصك هنا :</h2>
+              ) : displaySummary && !isArabic ? (
+                <h2 className="text-gray-800 font-bold mb-2">
+                  Your summary is here
+                </h2>
+              ) : (
+                <h2 className="text-gray-800 font-bold mb-2">
+                  Your summary will display here
+                </h2>
+              )}
 
-            {displaySummary && (
-              <p className="text-gray-700">
-                <Typewriter
-                  words={[summary]}
-                  loop={1}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={20}
-                  deleteSpeed={20}
-                  delaySpeed={1000}
-                  onDone={() => {
-                    console.log("Typewriter animation done");
-                    setTypewriterDone(true);
-                  }}
-                />
-              </p>
-            )}
-            {typewriterDone && (
-              <div className="absolute bottom-2 right-2 flex space-x-4">
-                <FontAwesomeIcon
-                  icon={faCopy}
-                  className="text-gray-600 hover:text-gray-800 cursor-pointer"
-                  onClick={handleCopyClick}
-                />
-                <FontAwesomeIcon
-                  icon={faSync}
-                  className="text-gray-600 hover:text-gray-800 cursor-pointer"
-                  onClick={handleGenerateClick}
-                />
-              </div>
-            )}
-          </div>
-        )}
+              {displaySummary && (
+                <p className="text-gray-700">
+                  <Typewriter
+                    words={[summary]}
+                    loop={1}
+                    cursor
+                    cursorStyle="_"
+                    typeSpeed={20}
+                    deleteSpeed={20}
+                    delaySpeed={1000}
+                    onDone={() => {
+                      console.log("Typewriter animation done");
+                      setTypewriterDone(true);
+                    }}
+                  />
+                </p>
+              )}
+              {typewriterDone && (
+                <div className="absolute bottom-2 right-2 flex space-x-4">
+                  <FontAwesomeIcon
+                    icon={faCopy}
+                    className="text-gray-600 hover:text-gray-800 cursor-pointer"
+                    onClick={handleCopyClick}
+                  />
+                  <FontAwesomeIcon
+                    icon={faSync}
+                    className="text-gray-600 hover:text-gray-800 cursor-pointer"
+                    onClick={handleGenerateClick}
+                  />
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </main>
     </div>
   );
