@@ -87,3 +87,11 @@ main {
 .summary p {
   color: #555;
 }
+.big-dot-cursor {
+  font-size: 24px; /* Adjust the size as needed */
+  line-height: 0; /* Ensures the dot stays centered vertically */
+}
+
+.big-dot-cursor::after {
+  content: "•"; /* Unicode for a big dot */
+}

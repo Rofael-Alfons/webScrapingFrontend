@@ -140,7 +140,7 @@ function App() {
                     loop={1}
                     cursor
                     cursorStyle="_"
-                    typeSpeed={20}
+                    typeSpeed={5}
                     deleteSpeed={20}
                     delaySpeed={1000}
                     onDone={() => {
